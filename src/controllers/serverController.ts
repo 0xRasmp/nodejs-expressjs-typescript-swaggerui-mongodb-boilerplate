@@ -1,7 +1,14 @@
 import { Request, Response } from 'express';
-import Item from '../models/itemModel';
 
-// Controller to check if the server is running
+// Controller to check server health status
 export const getServerStatus = (req: Request, res: Response) => {
-  res.send('Server is running!');
+  const healthData = {
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    environment: process.env.NODE_ENV || 'development'
+  };
+
+  res.json(healthData);
 };

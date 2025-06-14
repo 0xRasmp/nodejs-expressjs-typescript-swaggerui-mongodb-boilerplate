@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node.js Express API</title>
+    <title>Node.js Express TypeScript MongoDB Boilerplate</title>
     <style>
         * {
             margin: 0;
@@ -24,31 +24,46 @@
         .header {
             text-align: center;
             margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .header h1 {
             font-size: 2.5rem;
-            color: #2c3e50;
             margin-bottom: 1rem;
         }
         .header p {
             font-size: 1.2rem;
-            color: #666;
+            opacity: 0.9;
         }
         .content {
             background-color: white;
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .api-section {
             margin-bottom: 2rem;
         }
-        .api-section h2 {
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
             color: #2c3e50;
             margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
         }
-        .api-section p {
+        .section p {
             margin-bottom: 1rem;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
         }
         .link-button {
             display: inline-block;
@@ -57,36 +72,137 @@
             color: white;
             text-decoration: none;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            margin: 0.5rem 0;
         }
         .link-button:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .feature-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        .feature-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge.primary {
+            background-color: #3498db;
+            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Welcome to Node.js Express API</h1>
-            <p>A modern RESTful API built with Node.js, Express, TypeScript, and MongoDB</p>
+            <h1>Node.js Express TypeScript MongoDB Boilerplate</h1>
+            <p>A production-ready boilerplate for building RESTful APIs with Node.js, Express, TypeScript, and MongoDB</p>
         </div>
         
         <div class="content">
-            <div class="api-section">
-                <h2>API Documentation</h2>
-                <p>Explore our API documentation to learn about available endpoints and how to use them.</p>
+            <div class="section">
+                <h2>Quick Start</h2>
+                <div class="code-block">
+                    # Clone the repository<br>
+                    git clone https://github.com/yourusername/nodejs-express-typescript-mongodb-boilerplate.git<br><br>
+                    # Install dependencies<br>
+                    yarn install<br><br>
+                    # Set up environment variables<br>
+                    cp .env.example .env<br><br>
+                    # Start development server<br>
+                    yarn dev
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>TypeScript</h3>
+                        <p>Built with TypeScript for better development experience and type safety</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Express.js</h3>
+                        <p>Fast, unopinionated, minimalist web framework for Node.js</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>MongoDB</h3>
+                        <p>MongoDB integration with Mongoose ODM for data modeling</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Swagger UI</h3>
+                        <p>Interactive API documentation with Swagger UI</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Environment Variables</h3>
+                        <p>Environment variables support with dotenv</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Hot Reload</h3>
+                        <p>Development server with hot reload using nodemon</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Available Scripts</h2>
+                <div class="code-block">
+                    yarn dev        # Start development server<br>
+                    yarn build     # Build for production<br>
+                    yarn start     # Start production server
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Project Structure</h2>
+                <div class="code-block">
+                    src/<br>
+                    ├── controllers/    # Request handlers<br>
+                    ├── models/        # MongoDB models<br>
+                    ├── routes/        # API routes<br>
+                    ├── types/         # TypeScript type definitions<br>
+                    ├── public/        # Static files<br>
+                    ├── index.ts       # Application entry point<br>
+                    └── swaggerConfig.ts # Swagger configuration
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Documentation</h2>
+                <p>Explore the API documentation to learn about available endpoints and how to use them.</p>
                 <a href="/api-docs" class="link-button">View API Documentation</a>
             </div>
 
-            <div class="api-section">
-                <h2>Features</h2>
-                <ul>
-                    <li>RESTful API architecture</li>
-                    <li>TypeScript for type safety</li>
-                    <li>MongoDB database integration</li>
-                    <li>Swagger UI documentation</li>
-                    <li>Express.js framework</li>
-                </ul>
+            <div class="section">
+                <h2>Technologies</h2>
+                <div>
+                    <span class="badge primary">Node.js</span>
+                    <span class="badge primary">Express</span>
+                    <span class="badge primary">TypeScript</span>
+                    <span class="badge primary">MongoDB</span>
+                    <span class="badge primary">Mongoose</span>
+                    <span class="badge primary">Swagger UI</span>
+                    <span class="badge primary">dotenv</span>
+                    <span class="badge primary">nodemon</span>
+                </div>
             </div>
         </div>
     </div>
