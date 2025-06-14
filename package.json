@@ -4,8 +4,8 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "tsc && cp -r src/public dist/",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "build": "tsc && yarn tailwindcss -i ./src/public/styles.css -o ./dist/public/styles.css --minify && cp -r src/public/*.html dist/public/",
+    "dev": "concurrently \"nodemon --exec ts-node src/index.ts\" \"yarn tailwindcss -i ./src/public/styles.css -o ./src/public/styles.css --watch\""
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -19,7 +19,11 @@
     "@types/node": "^20.0.0",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.7",
+    "autoprefixer": "10.4.17",
+    "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
+    "postcss": "8.4.35",
+    "tailwindcss": "3.4.1",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.0"

@@ -4,123 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node.js Express TypeScript MongoDB Boilerplate</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        .content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #3498db;
-        }
-        .section p {
-            margin-bottom: 1rem;
-        }
-        .code-block {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-        .link-button {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s;
-            margin: 0.5rem 0;
-        }
-        .link-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        .feature-item {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 4px;
-            border-left: 4px solid #3498db;
-        }
-        .feature-item h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            background-color: #e9ecef;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .badge.primary {
-            background-color: #3498db;
-            color: white;
-        }
-    </style>
+    <link href="styles.css" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Node.js Express TypeScript MongoDB Boilerplate</h1>
-            <p>A production-ready boilerplate for building RESTful APIs with Node.js, Express, TypeScript, and MongoDB</p>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg shadow-lg p-8 mb-8">
+            <h1 class="text-4xl font-bold mb-4">Node.js Express TypeScript MongoDB Boilerplate</h1>
+            <p class="text-xl opacity-90">A production-ready RESTful API boilerplate built with Node.js, Express, TypeScript, and MongoDB</p>
         </div>
         
-        <div class="content">
-            <div class="section">
-                <h2>Quick Start</h2>
-                <div class="code-block">
+        <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Quick Start</h2>
+                <div class="bg-gray-50 p-4 rounded-lg font-mono text-sm overflow-x-auto">
                     # Clone the repository<br>
                     git clone https://github.com/yourusername/nodejs-express-typescript-mongodb-boilerplate.git<br><br>
                     # Install dependencies<br>
@@ -132,48 +28,48 @@
                 </div>
             </div>
 
-            <div class="section">
-                <h2>Features</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <h3>TypeScript</h3>
-                        <p>Built with TypeScript for better development experience and type safety</p>
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">TypeScript</h3>
+                        <p class="text-gray-600">Built with TypeScript for better development experience and type safety</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>Express.js</h3>
-                        <p>Fast, unopinionated, minimalist web framework for Node.js</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Express.js</h3>
+                        <p class="text-gray-600">Fast, unopinionated, minimalist web framework for Node.js</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>MongoDB</h3>
-                        <p>MongoDB integration with Mongoose ODM for data modeling</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">MongoDB</h3>
+                        <p class="text-gray-600">MongoDB integration with Mongoose ODM for data modeling</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>Swagger UI</h3>
-                        <p>Interactive API documentation with Swagger UI</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Swagger UI</h3>
+                        <p class="text-gray-600">Interactive API documentation with Swagger UI</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>Environment Variables</h3>
-                        <p>Environment variables support with dotenv</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Environment Variables</h3>
+                        <p class="text-gray-600">Environment variables support with dotenv</p>
                     </div>
-                    <div class="feature-item">
-                        <h3>Hot Reload</h3>
-                        <p>Development server with hot reload using nodemon</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Hot Reload</h3>
+                        <p class="text-gray-600">Development server with hot reload using nodemon</p>
                     </div>
                 </div>
             </div>
 
-            <div class="section">
-                <h2>Available Scripts</h2>
-                <div class="code-block">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Available Scripts</h2>
+                <div class="bg-gray-50 p-4 rounded-lg font-mono text-sm">
                     yarn dev        # Start development server<br>
                     yarn build     # Build for production<br>
                     yarn start     # Start production server
                 </div>
             </div>
 
-            <div class="section">
-                <h2>Project Structure</h2>
-                <div class="code-block">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Project Structure</h2>
+                <div class="bg-gray-50 p-4 rounded-lg font-mono text-sm">
                     src/<br>
                     ├── controllers/    # Request handlers<br>
                     ├── models/        # MongoDB models<br>
@@ -185,23 +81,23 @@
                 </div>
             </div>
 
-            <div class="section">
-                <h2>Documentation</h2>
-                <p>Explore the API documentation to learn about available endpoints and how to use them.</p>
-                <a href="/api-docs" class="link-button">View API Documentation</a>
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Documentation</h2>
+                <p class="text-gray-600 mb-4">Explore the API documentation to learn about available endpoints and how to use them.</p>
+                <a href="/api-docs" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">View API Documentation</a>
             </div>
 
-            <div class="section">
-                <h2>Technologies</h2>
-                <div>
-                    <span class="badge primary">Node.js</span>
-                    <span class="badge primary">Express</span>
-                    <span class="badge primary">TypeScript</span>
-                    <span class="badge primary">MongoDB</span>
-                    <span class="badge primary">Mongoose</span>
-                    <span class="badge primary">Swagger UI</span>
-                    <span class="badge primary">dotenv</span>
-                    <span class="badge primary">nodemon</span>
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Technologies</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Node.js</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Express</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">TypeScript</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Mongoose</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Swagger UI</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">dotenv</span>
+                    <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">nodemon</span>
                 </div>
             </div>
         </div>
