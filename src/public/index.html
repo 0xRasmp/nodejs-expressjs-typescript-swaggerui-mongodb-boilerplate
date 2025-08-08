@@ -55,6 +55,10 @@
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Hot Reload</h3>
                         <p class="text-gray-600">Development server with hot reload using nodemon</p>
                     </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Token Generation</h3>
+                        <p class="text-gray-600">Generate and manage secure tokens with MongoDB storage</p>
+                    </div>
                 </div>
             </div>
 
@@ -79,6 +83,46 @@
                     ├── index.ts       # Application entry point<br>
                     └── swaggerConfig.ts # Swagger configuration
                 </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Authentication API</h2>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Available Endpoints:</h3>
+                    <div class="space-y-2 font-mono text-sm">
+                        <div><span class="text-green-600">POST</span> /api/auth/login - Login with access token (no password)</div>
+                        <div><span class="text-blue-600">POST</span> /api/auth/me - Get current user info</div>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">Simple authentication system - just provide your access token to login. No passwords required!</p>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Token API</h2>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Available Endpoints:</h3>
+                    <div class="space-y-2 font-mono text-sm">
+                        <div><span class="text-green-600">POST</span> /api/tokens - Generate new access token</div>
+                        <div><span class="text-blue-600">GET</span> /api/tokens/validate/:token - Validate token & get user info</div>
+                        <div><span class="text-blue-600">GET</span> /api/tokens - Get all tokens (paginated)</div>
+                        <div><span class="text-yellow-600">PATCH</span> /api/tokens/:id/deactivate - Deactivate token</div>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">Generate secure access tokens like <code class="bg-gray-200 px-1 rounded">966f7dbf481761363f9b94fae</code>. The token itself serves as the user ID - anyone with the token can identify themselves. Set expiration in days (e.g., 30 for 30 days).</p>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b-2 border-blue-500">Twitter Username API</h2>
+                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Available Endpoints:</h3>
+                    <div class="space-y-2 font-mono text-sm">
+                        <div><span class="text-green-600">POST</span> /api/twitter-usernames - Add Twitter username to access token</div>
+                        <div><span class="text-blue-600">GET</span> /api/twitter-usernames/token/:accessToken - Get usernames for a token</div>
+                        <div><span class="text-blue-600">GET</span> /api/twitter-usernames/username/:username - Get tokens for a username</div>
+                        <div><span class="text-red-600">DELETE</span> /api/twitter-usernames/remove - Remove username from token</div>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">Each access token can only add a specific Twitter username once. Multiple tokens can add the same username, but one token cannot add the same username twice.</p>
             </div>
 
             <div class="mb-8">

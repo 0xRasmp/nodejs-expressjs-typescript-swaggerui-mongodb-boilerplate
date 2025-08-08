@@ -33,6 +33,18 @@ const options = {
         description: 'Health check endpoints'
       },
       {
+        name: 'Authentication',
+        description: 'Authentication endpoints'
+      },
+      {
+        name: 'Tokens',
+        description: 'Token management endpoints'
+      },
+      {
+        name: 'Twitter Usernames',
+        description: 'Twitter username management endpoints'
+      },
+      {
         name: 'Users',
         description: 'User management endpoints'
       }
@@ -47,7 +59,7 @@ const options = {
       }
     }
   },
-  apis: ['./src/routes/*.ts'], // Path to the API docs
+  apis: ['./src/routes/*.ts', './src/controllers/*.ts'], // Path to the API docs
 };
 
 const swaggerSpec = swaggerJSDoc(options);

@@ -2,6 +2,9 @@ import express from 'express';
 import { getServerStatus } from '../controllers/serverController';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from '../swaggerConfig';
+import tokenRoutes from './tokenRoutes';
+import authRoutes from './authRoutes';
+import twitterUsernameRoutes from './twitterUsernameRoutes';
 
 const router = express.Router();
 
@@ -74,5 +77,14 @@ router.get('/version', (req, res) => {
  *         description: Server is running
  */
 router.get('/status', getServerStatus);
+
+// Token routes
+router.use('/tokens', tokenRoutes);
+
+// Auth routes
+router.use('/auth', authRoutes);
+
+// Twitter username routes
+router.use('/twitter-usernames', twitterUsernameRoutes);
 
 export default router; 
