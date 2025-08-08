@@ -73,6 +73,23 @@ export const addTwitterUsername = async (req: Request, res: Response) => {
       });
     }
 
+    // Check if the access token has reached the limit of 300 usernames
+    const currentCount = await TwitterUsername.countDocuments({
+      accessToken: accessToken,
+      isActive: true,
+    });
+
+    if (currentCount >= 300) {
+      return res.status(429).json({
+        success: false,
+        message: "Access token has reached the maximum limit of 300 Twitter usernames",
+        data: {
+          currentCount: currentCount,
+          limit: 300,
+        },
+      });
+    }
+
     // Create new Twitter username entry
     const twitterUsernameDoc = new TwitterUsername({
       accessToken: accessToken,
@@ -172,120 +189,6 @@ export const getTwitterUsernamesByToken = async (req: Request, res: Response) =>
   }
 };
 
-// Get all access tokens that have added a specific Twitter username
-export const getAccessTokensByUsername = async (req: Request, res: Response) => {
-  try {
-    const { twitterUsername } = req.params;
 
-    if (!twitterUsername) {
-      return res.status(400).json({
-        success: false,
-        message: "Twitter username is required",
-      });
-    }
 
-    // Remove @ symbol if present and trim whitespace
-    const cleanUsername = twitterUsername.replace(/^@/, '').trim();
-
-    // Get all access tokens that have added this Twitter username
-    const entries = await TwitterUsername.find({
-      twitterUsername: cleanUsername,
-      isActive: true,
-    }).select("-__v");
-
-    res.json({
-      success: true,
-      data: {
-        twitterUsername: cleanUsername,
-        accessTokens: entries.map((entry) => ({
-          accessToken: entry.accessToken,
-          createdAt: entry.createdAt,
-        })),
-        count: entries.length,
-      },
-    });
-  } catch (error) {
-    console.error("Error getting access tokens by username:", error);
-    res.status(500).json({
-      success: false,
-      message: "Internal server error",
-      error: error instanceof Error ? error.message : "Unknown error",
-    });
-  }
-};
-
-// Remove a Twitter username for an access token
-export const removeTwitterUsername = async (req: Request, res: Response) => {
-  try {
-    const { accessToken, twitterUsername } = req.body;
-
-    if (!accessToken || !twitterUsername) {
-      return res.status(400).json({
-        success: false,
-        message: "Access token and Twitter username are required",
-      });
-    }
-
-    // Remove @ symbol if present and trim whitespace
-    const cleanUsername = twitterUsername.replace(/^@/, '').trim();
-
-    // Validate that the access token exists and is active
-    const tokenDoc = await Token.findOne({
-      token: accessToken,
-      isActive: true,
-    });
-
-    if (!tokenDoc) {
-      return res.status(404).json({
-        success: false,
-        message: "Access token not found or inactive",
-      });
-    }
-
-    // Check if token is expired
-    if (
-      tokenDoc.metadata?.expiresAt &&
-      new Date() > tokenDoc.metadata.expiresAt
-    ) {
-      return res.status(401).json({
-        success: false,
-        message: "Access token has expired",
-      });
-    }
-
-    // Find and deactivate the Twitter username entry
-    const entry = await TwitterUsername.findOneAndUpdate(
-      {
-        accessToken: accessToken,
-        twitterUsername: cleanUsername,
-        isActive: true,
-      },
-      { isActive: false },
-      { new: true }
-    );
-
-    if (!entry) {
-      return res.status(404).json({
-        success: false,
-        message: "Twitter username not found for this access token",
-      });
-    }
-
-    res.json({
-      success: true,
-      message: "Twitter username removed successfully",
-      data: {
-        accessToken: entry.accessToken,
-        twitterUsername: entry.twitterUsername,
-        removedAt: new Date(),
-      },
-    });
-  } catch (error) {
-    console.error("Error removing Twitter username:", error);
-    res.status(500).json({
-      success: false,
-      message: "Internal server error",
-      error: error instanceof Error ? error.message : "Unknown error",
-    });
-  }
-}; 
+ 
